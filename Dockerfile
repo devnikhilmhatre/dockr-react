@@ -6,6 +6,7 @@ RUN npm run build
 
 
 FROM nginx:stable-alpine
+RUN apk add bash
 COPY --from=base /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
